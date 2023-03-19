@@ -81,15 +81,15 @@
 //  console.log(nthFibo(7));
 
 //4 solution:
-  //function nthFibo(n) {
-  //  var cache=[0,0,1,1];
-  //  while(cache.length<=n){
-  //    cache[cache.length]=cache[cache.length-1]+cache[cache.length-2];
-  //  }
-  //  return cache[n];
-  //}
-  //console.log(nthFibo(17));
-  //----------------------------------------------------
+//function nthFibo(n) {
+//  var cache=[0,0,1,1];
+//  while(cache.length<=n){
+//    cache[cache.length]=cache[cache.length-1]+cache[cache.length-2];
+//  }
+//  return cache[n];
+//}
+//console.log(nthFibo(17));
+//----------------------------------------------------
 
 //  7 kyu
 //Head, Tail, Init and Last
@@ -126,17 +126,62 @@
 
 //1 solution:
 
-function haskell(){
-  const head = () => {
-    return head.splice(0,1);
-  }
-  const init = () => {
-    return init.slice(0,-1);
-  }
-  const tail = () => {
-    return tail.slice(-1)
-  }
+// function head(head) {
+//    return Number(head.splice(0, 1));
+// }
+// function tail(tail) {
+//    return tail.slice(1);
+// }
+// function init(init) {
+//    return init.slice(0, -1);
+// }
+// function last(last) {
+//    return Number(last.slice(-1))
+// }
+// console.log(head([1, 2, 3, 4, 5]));
+// console.log(tail([48, 26, 26]));
+// console.log(init([1, 2, 3, 4, 5]));
+// console.log(last([1, 2, 3, 4, 5]));
+// -------------------------------------------
 
-}
-console.log(haskell([1,2,3,4,5]))
+// 6 kyu
+// Array Deep Count
 
+// You are given an array. Complete the function that returns the number 
+// of ALL elements within an array, including any nested arrays.
+
+// Examples
+// []                   -->  0
+// [1, 2, 3]            -->  3
+// ["x", "y", ["z"]]    -->  4
+// [1, 2, [3, 4, [5]]]  -->  7
+
+//solution:
+
+function deepCount(arr) {
+   // let deep = Array.isArray(arr) ? 1 + Math.max(0, ...arr.map(deepCount)) : 0
+   // console.log(deep)
+   // let count = 0;
+   // let newArr = arr.flat(Infinity)
+   // console.log(newArr)
+   // for (i = 0; i < newArr.length; i++) {
+   //    count++
+   // }
+// }
+// console.log(deepCount([2, 3, 4, 5, 6, 7, [[[[]]]]]))
+//  b = arr.flat();
+//  console.log(b)
+return arr.reduce((s,e)=>s+(Array.isArray(e)? deepCount(e):0),arr.length);
+// return Array.isArray(arr)? 1 + Math.max(-1, ...arr.map(deepCount)): 0
+ }
+ console.log(deepCount([[[[[[[[[]]]]]]]]]))
+// console.log( '' )
+// function f1(item, level = 0){ 
+//    if (item instanceof Array){
+//        return (level > 0 ? 1 : 0) + item.map(function(value, index){
+//            return f1(value, level + 1)
+//        }).reduce((a, b) => a + b , 0)
+//    }
+//    return 0;
+// }
+// console.log(f1([[[[[[[[[6,76]]]]]]]]]))
