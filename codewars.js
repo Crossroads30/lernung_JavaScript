@@ -158,30 +158,7 @@
 
 //solution:
 
-function deepCount(arr) {
-   // let deep = Array.isArray(arr) ? 1 + Math.max(0, ...arr.map(deepCount)) : 0
-   // console.log(deep)
-   // let count = 0;
-   // let newArr = arr.flat(Infinity)
-   // console.log(newArr)
-   // for (i = 0; i < newArr.length; i++) {
-   //    count++
-   // }
-// }
-// console.log(deepCount([2, 3, 4, 5, 6, 7, [[[[]]]]]))
-//  b = arr.flat();
-//  console.log(b)
-return arr.reduce((s,e)=>s+(Array.isArray(e)? deepCount(e):0),arr.length);
-// return Array.isArray(arr)? 1 + Math.max(-1, ...arr.map(deepCount)): 0
- }
- console.log(deepCount([[[[[[[[[]]]]]]]]]))
-// console.log( '' )
-// function f1(item, level = 0){ 
-//    if (item instanceof Array){
-//        return (level > 0 ? 1 : 0) + item.map(function(value, index){
-//            return f1(value, level + 1)
-//        }).reduce((a, b) => a + b , 0)
-//    }
-//    return 0;
-// }
-// console.log(f1([[[[[[[[[6,76]]]]]]]]]))
+// function deepCount(arr) {
+// return arr.reduce((s,e)=>s+(Array.isArray(e)? deepCount(e):0),arr.length);
+//  }
+//  console.log(deepCount([1, 2, [3, 4, [5]]]))
